@@ -15,10 +15,16 @@ class AvatarController extends Controller
     // it is from the app\Http\Requests\UpdateAvatarRequest.php file
     // 
     // -------------------------------------------------------------------
-    {
-        dd($request->all());
+    {        
+        $path = $request->file('avatar')->store('avatars');
+        auth()->user()->update(['avatar' => storage_path('app')."/$path"]);
+        // -------------------------------------------------------------------
+        // 
+        // this is a way to store and get the path of the avatar image
+        // 
+        // -------------------------------------------------------------------
         
         // store the avatar image
-        return back()->with('message', 'Avatar updated successfully');
+        return redirect(route('profile.edit'))->with('message', 'Avatar updated successfully');
     }   
 }
