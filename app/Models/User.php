@@ -20,9 +20,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'avatar',
         'email',
         'password',
     ];
+
+    // \ ********************************************************************************
+    // \
+    // \ $guarded IS USED TO RESTRICT THE FIELDS THAT CAN BE USED FOR CREATION
+    // \
+    // \ ********************************************************************************
+    // protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
