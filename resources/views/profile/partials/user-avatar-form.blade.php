@@ -21,7 +21,7 @@
         
         remember to do Form Method Spoofing
     -------------------------------------------------------------------}}
-    <form method="post" action="{{ route('profile.avatar') }}">
+    <form method="post" action="{{ route('profile.avatar') }}" enctype="multipart/form-data">
         {{-------------------------------------------------------------------
             <input type="hidden" name="_method" value="patch"> 
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -33,7 +33,7 @@
 
         <div>
             <x-input-label for="name" :value="__('Avatar')" />
-            <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar', $user->avatar)" required autofocus autocomplete="avatar" />
+            <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar', $user->avatar)" autofocus autocomplete="avatar" />
             <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
         </div>
         <div class="flex items-center gap-4 mt-4">
