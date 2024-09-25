@@ -8,6 +8,13 @@
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
+
+    @if (session('message'))
+        <div class="text-red-500">
+            {{ session('message') }}
+        </div>
+    @endif
+
     {{------------------------------------------------------------------- 
         <form method="post" action="route('profile.avatar')">    
         this is the traditional way to do it
